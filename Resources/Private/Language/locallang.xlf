@@ -10,6 +10,39 @@
 			<trans-unit id="page.types.td">
 				<source>Todo Items</source>
 			</trans-unit>
+			<trans-unit id="palettes.general">
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="profile">
+				<source>Profile</source>
+			</trans-unit>
+			<trans-unit id="profile.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="profile.hidden">
+				<source>Hidden</source>
+			</trans-unit>
+			<trans-unit id="profile.tasks">
+				<source>Tasks</source>
+			</trans-unit>
+			<trans-unit id="task">
+				<source>Task</source>
+			</trans-unit>
+			<trans-unit id="task">
+				<source>Task</source>
+			</trans-unit>
+			<trans-unit id="task.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="task.profile">
+				<source>Profile</source>
+			</trans-unit>
+			<trans-unit id="task.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="task.due_date">
+				<source>Due date</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
