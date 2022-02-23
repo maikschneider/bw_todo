@@ -10,27 +10,31 @@
     }
   ],
   "require": {
-    "typo3/cms-about": "~11.5",
-    "typo3/cms-adminpanel": "~11.5",
-    "typo3/cms-backend": "~11.5",
-    "typo3/cms-belog": "~11.5",
-    "typo3/cms-beuser": "~11.5",
-    "typo3/cms-core": "~11.5",
-    "typo3/cms-dashboard": "~11.5",
-    "typo3/cms-extbase": "~11.5",
-    "typo3/cms-extensionmanager": "~11.5",
-    "typo3/cms-filelist": "~11.5",
-    "typo3/cms-fluid": "~11.5",
-    "typo3/cms-form": "~11.5",
-    "typo3/cms-frontend": "~11.5",
-    "typo3/cms-impexp": "~11.5",
-    "typo3/cms-info": "~11.5",
-    "typo3/cms-install": "~11.5",
-    "typo3/cms-lowlevel": "~11.5",
-    "typo3/cms-recordlist": "~11.5",
-    "typo3/cms-reports": "~11.5",
-    "typo3/cms-setup": "~11.5",
-    "typo3/cms-tstemplate": "~11.5"
+    "typo3/cms-about": "^11.5",
+    "typo3/cms-adminpanel": "^11.5",
+    "typo3/cms-backend": "^11.5",
+    "typo3/cms-belog": "^11.5",
+    "typo3/cms-beuser": "^11.5",
+    "typo3/cms-core": "^11.5",
+    "typo3/cms-dashboard": "^11.5",
+    "typo3/cms-extbase": "^11.5",
+    "typo3/cms-extensionmanager": "^11.5",
+    "typo3/cms-filelist": "^11.5",
+    "typo3/cms-fluid": "^11.5",
+    "typo3/cms-form": "^11.5",
+    "typo3/cms-frontend": "^11.5",
+    "typo3/cms-impexp": "^11.5",
+    "typo3/cms-info": "^11.5",
+    "typo3/cms-install": "^11.5",
+    "typo3/cms-lowlevel": "^11.5",
+    "typo3/cms-recordlist": "^11.5",
+    "typo3/cms-reports": "^11.5",
+    "typo3/cms-setup": "^11.5",
+    "typo3/cms-tstemplate": "^11.5",
+    "helhum/typo3-console": "^7.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
   },
   "autoload": {
     "psr-4": {
@@ -53,7 +57,7 @@
   "scripts": {
     "typo3-cms-scripts": [
       "ln -sfn ../../../ public/typo3conf/ext/bw_todo",
-      "vendor/bin/typo3cms install:fixfolderstructure"
+      "vendor/bin/typo3cms extension:setup"
     ],
     "post-autoload-dump": [
       "@typo3-cms-scripts"

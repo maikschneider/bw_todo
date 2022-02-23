@@ -1,0 +1,2 @@
+@import 'EXT:bw_todo/Configuration/TypoScript/Setup/config.typoscript'
+@import 'EXT:bw_todo/Configuration/TypoScript/Setup/page.typoscript'

@@ -1,0 +1,15 @@
+page = PAGE
+page {
+	typeNum = 0
+	#shortcutIcon =
+
+	meta {
+		X-UA-Compatible = ie=edge
+		X-UA-Compatible.attribute = http-equiv
+		viewport = width=device-width, initial-scale=1.0
+	}
+
+	10 = TEXT
+	10.value = Hello world
+
+}

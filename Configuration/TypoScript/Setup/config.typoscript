@@ -1,0 +1,23 @@
+config {
+	no_cache = 0
+	sendCacheHeaders = 1
+	debug = 0
+	contentObjectExceptionHandler = 1
+	compressJs = 1
+	compressCss = 1
+	concatenateJs = 1
+	concatenateCss = 1
+}
+
+[applicationContext matches "/^Development/"]
+	config {
+		no_cache = 1
+		sendCacheHeaders = 0
+		debug = 1
+		contentObjectExceptionHandler = 0
+		compressJs = 0
+		compressCss = 0
+		concatenateJs = 0
+		concatenateCss = 0
+	}
+[GLOBAL]
