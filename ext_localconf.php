@@ -26,7 +26,7 @@ defined('TYPO3_MODE') || die('Access denied.');
         'Blueways.BwTodo',
         'Api',
         [
-            \Blueways\BwTodo\Controller\ProfileController::class => 'list,create,delete,update',
+            \Blueways\BwTodo\Controller\ProfileController::class => 'list,show,create,delete,update',
             \Blueways\BwTodo\Controller\TaskController::class => 'list,create,delete,update'
         ],
         [

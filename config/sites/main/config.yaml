@@ -1,5 +1,4 @@
 base: 'https://bw-todo.ddev.site/'
-errorHandling: {  }
 languages:
   -
     title: English
@@ -14,12 +13,13 @@ languages:
     direction: ltr
     flag: us
 rootPageId: 1
-routes: {  }
 routeEnhancers:
   PageTypeSuffix:
     type: PageType
     default: ''
     map:
       .json: 2927392
+websiteTitle: ''
 imports:
-  - resource: 'EXT:bw_todo/Configuration/Routing/Api.yaml'
+  -
+    resource: 'EXT:bw_todo/Configuration/Routing/Api.yaml'

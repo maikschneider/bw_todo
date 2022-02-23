@@ -8,3 +8,9 @@ routeEnhancers:
         _controller: 'Profile::list'
       - routePath: '/task'
         _controller: 'Task::list'
+      - routePath: '/profile/{profile_id}'
+        _controller: 'Profile::show'
+        _arguments:
+          profile_id: 'profile'
+        requirements:
+          'profile_id': '[0-9]+'
