@@ -1,0 +1,62 @@
+{
+  "name": "blueways/bw-todo",
+  "description": "TYPO3 extension for move:elevator application test",
+  "type": "typo3-cms-extension",
+  "authors": [
+    {
+      "name": "Maik Schneider",
+      "email": "schneider.maik@me.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "typo3/cms-about": "~11.5",
+    "typo3/cms-adminpanel": "~11.5",
+    "typo3/cms-backend": "~11.5",
+    "typo3/cms-belog": "~11.5",
+    "typo3/cms-beuser": "~11.5",
+    "typo3/cms-core": "~11.5",
+    "typo3/cms-dashboard": "~11.5",
+    "typo3/cms-extbase": "~11.5",
+    "typo3/cms-extensionmanager": "~11.5",
+    "typo3/cms-filelist": "~11.5",
+    "typo3/cms-fluid": "~11.5",
+    "typo3/cms-form": "~11.5",
+    "typo3/cms-frontend": "~11.5",
+    "typo3/cms-impexp": "~11.5",
+    "typo3/cms-info": "~11.5",
+    "typo3/cms-install": "~11.5",
+    "typo3/cms-lowlevel": "~11.5",
+    "typo3/cms-recordlist": "~11.5",
+    "typo3/cms-reports": "~11.5",
+    "typo3/cms-setup": "~11.5",
+    "typo3/cms-tstemplate": "~11.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Blueways\\BwTodo\\": "Classes"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": "public",
+      "extension-key": "bw_todo"
+    }
+  },
+  "config": {
+    "vendor-dir": "vendor",
+    "allow-plugins": {
+      "typo3/*": true
+    }
+  },
+  "scripts": {
+    "typo3-cms-scripts": [
+      "ln -sfn ../../../ public/typo3conf/ext/bw_todo",
+      "vendor/bin/typo3cms install:fixfolderstructure"
+    ],
+    "post-autoload-dump": [
+      "@typo3-cms-scripts"
+    ]
+  }
+}
