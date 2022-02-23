@@ -21,11 +21,21 @@ defined('TYPO3_MODE') || die('Access denied.');
         "@import 'EXT:bw_todo/Configuration/TSconfig/Page.tsconfig'"
     );
 
-    // register FE-Plugin
+    // register FE-Plugins
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         'Blueways.BwTodo',
-        'Api',
-        [],
+        'Profile',
+        [
+            \Blueways\BwTodo\Controller\ProfileController::class => 'list,create,delete,update'
+        ],
+        []
+    );
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Blueways.BwTodo',
+        'Task',
+        [
+            \Blueways\BwTodo\Controller\TaskController::class => 'list,create,delete,update'
+        ],
         []
     );
 })();

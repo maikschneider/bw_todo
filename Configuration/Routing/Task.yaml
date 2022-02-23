@@ -1,0 +1,8 @@
+routeEnhancers:
+  BwTodoTask:
+    type: Extbase
+    extension: BwTodo
+    plugin: Task
+    routes:
+      - routePath: '/task'
+        _controller: 'Task::list'

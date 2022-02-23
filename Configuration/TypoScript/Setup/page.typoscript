@@ -13,3 +13,25 @@ page {
 	10.value = Hello world
 
 }
+
+apiProfile = PAGE
+apiProfile {
+	typeNum = 2927392
+	10 = USER
+	10.userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+	10.extensionName = BwTodo
+	10.pluginName = Profile
+	10.vendorName = Blueways
+	config {
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-type:application/json
+		xhtml_cleaning = 0
+		admPanel = 0
+		debug = 0
+		no_cache = 1
+	}
+}
+
+
+apiTask < apiProfile
+apiTask.10.pluginName = Task
