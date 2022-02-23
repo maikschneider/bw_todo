@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2022-01-01T12:00:00Z" product-name="bw_todo">
+		<header>
+			<generator>XLIFF Editor</generator>
+			<authorName>Maik Schneider</authorName>
+			<authorEmail>schneider.maik@me.com</authorEmail>
+		</header>
+		<body>
+			<trans-unit id="page.types.td">
+				<source>Todo Items</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
