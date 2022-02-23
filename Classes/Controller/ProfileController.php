@@ -10,7 +10,7 @@ class ProfileController extends ActionController
 
     public function listAction(): ResponseInterface
     {
-        return $this->jsonResponse('{}');
+        return $this->jsonResponse('{"profile": true}');
     }
 
 }

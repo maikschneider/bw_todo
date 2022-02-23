@@ -1,8 +1,10 @@
 routeEnhancers:
-  BwTodoTask:
+  BwTodoApi:
     type: Extbase
     extension: BwTodo
-    plugin: Task
+    plugin: Api
     routes:
+      - routePath: '/profile'
+        _controller: 'Profile::list'
       - routePath: '/task'
         _controller: 'Task::list'

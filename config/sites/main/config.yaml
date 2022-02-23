@@ -22,5 +22,4 @@ routeEnhancers:
     map:
       .json: 2927392
 imports:
-  - resource: 'EXT:bw_todo/Configuration/Routing/Profile.yaml'
-  - resource: 'EXT:bw_todo/Configuration/Routing/Task.yaml'
+  - resource: 'EXT:bw_todo/Configuration/Routing/Api.yaml'

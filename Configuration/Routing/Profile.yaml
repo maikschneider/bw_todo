@@ -1,8 +1,0 @@
-routeEnhancers:
-  BwTodoProfile:
-    type: Extbase
-    extension: BwTodo
-    plugin: Profile
-    routes:
-      - routePath: '/profile'
-        _controller: 'Profile::list'

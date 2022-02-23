@@ -20,7 +20,7 @@ apiProfile {
 	10 = USER
 	10.userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
 	10.extensionName = BwTodo
-	10.pluginName = Profile
+	10.pluginName = Api
 	10.vendorName = Blueways
 	config {
 		disableAllHeaderCode = 1
@@ -31,7 +31,3 @@ apiProfile {
 		no_cache = 1
 	}
 }
-
-
-apiTask < apiProfile
-apiTask.10.pluginName = Task
