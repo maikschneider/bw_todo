@@ -3,7 +3,7 @@
 ## Install
 
 1. Start project with [ddev](https://ddev.readthedocs.io/), dependencies and
-   database become installed automatically:
+   database are installed automatically:
 
    ```
    ddev start

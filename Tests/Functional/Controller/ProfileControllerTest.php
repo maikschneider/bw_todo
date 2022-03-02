@@ -5,16 +5,20 @@ namespace Blueways\BwTodo\Tests\Functional\Controller;
 use Blueways\BwTodo\Domain\Repository\ProfileRepository;
 use Blueways\BwTodo\Tests\Functional\SiteHandling\SiteBasedTestTrait;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Http\Stream;
+use TYPO3\CMS\Core\Database\Connection;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Http\StreamFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequest;
+use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequestContext;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 class ProfileControllerTest extends FunctionalTestCase
 {
 
     use SiteBasedTestTrait;
+
+    protected ?QueryBuilder $queryBuilder = null;
 
     protected const LANGUAGE_PRESETS = [
         'EN' => ['id' => 0, 'title' => 'English', 'locale' => 'en_US.UTF8']
@@ -42,14 +46,18 @@ class ProfileControllerTest extends FunctionalTestCase
     {
         parent::setUp();
         $this->resetSingletonInstances = true;
-        $this->profileRepository = $this->createMock(ProfileRepository::class);
 
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages');
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_bwtodo_domain_model_profile');
         $connection->truncate('pages');
         $connection->truncate('tx_bwtodo_domain_model_profile');
         $connection->truncate('tx_bwtodo_domain_model_task');
+
+        $this->queryBuilder = $connection->createQueryBuilder();
         $this->importDataSet(__DIR__ . '/../../Fixtures/pages.xml');
-        $this->setUpFrontendRootPage(1, ['setup' => ['EXT:bw_todo/Configuration/TypoScript/setup.typoscript']]);
+        $this->setUpFrontendRootPage(1, [
+            'setup' => ['EXT:bw_todo/Configuration/TypoScript/setup.typoscript'],
+            'constants' => ['EXT:bw_todo/Tests/Fixtures/constants.typoscript']
+        ]);
 
         $siteConf = $this->buildSiteConfiguration(1, '/');
         $siteConf['imports'] = [
@@ -76,6 +84,7 @@ class ProfileControllerTest extends FunctionalTestCase
             ])
         );
 
+        // test response and empty result set
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertJson($response->getBody());
         $this->assertEquals([], json_decode($response->getBody(), false, 512, JSON_THROW_ON_ERROR));
@@ -94,10 +103,15 @@ class ProfileControllerTest extends FunctionalTestCase
             ])
         );
 
+        // test response
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertJson($response->getBody());
+
+        // test result count
         $profiles = json_decode($response->getBody(), false, 512, JSON_THROW_ON_ERROR);
         $this->assertCount(3, $profiles);
+
+        // test data types
         $this->assertIsObject($profiles[0]);
         $this->assertIsInt($profiles[0]->uid);
         $this->assertIsString($profiles[0]->name);
@@ -133,28 +147,10 @@ class ProfileControllerTest extends FunctionalTestCase
 
     public function testCreate(): void
     {
-        $body = [
+        $postData = [
             'name' => 'Test-Todo'
         ];
-
-        $data = array('name' => 'Check1', 'bla' => 'foo');
-        $options = array(
-            'http' => array(
-                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method' => 'POST',
-                'content' => http_build_query($data),
-            ),
-        );
-        $context = stream_context_create($options);
-        $stream = new \TYPO3\CMS\Core\Http\Stream($context);
-
-        $body = new Stream('php://temp', 'wb+');
-        $body->write('fwfe=test');
-        $body->rewind();
-
-        $stream = (new StreamFactory())->createStream(http_build_query($data));
-
-        \TYPO3\CMS\Core\Utility\DebugUtility::debug($options, 'Debug: ' . __FILE__ . ' in Line: ' . __LINE__);
+        $body = (new StreamFactory())->createStream(http_build_query($postData));
 
         $request = (new InternalRequest())
             ->withQueryParameters([
@@ -164,9 +160,67 @@ class ProfileControllerTest extends FunctionalTestCase
                 'tx_bwtodo_api[action]' => 'index',
             ])
             ->withMethod('POST')
-            ->withHeader('Content-Type', 'application/x-www-form-urlencoded')
             ->withBody($body);
 
+        // test response
         $response = $this->executeFrontendSubRequest($request);
+        $this->assertEquals(200, $response->getStatusCode());
+        $body = $response->getBody();
+        $this->assertJson($body);
+
+        // test response object
+        $profile = json_decode($response->getBody(), false, 512, JSON_THROW_ON_ERROR);
+        $this->assertIsObject($profile);
+
+        // @TODO: POST request does not submit form data
+        //$this->assertEquals($postData['name'], $profile->name);
+    }
+
+    /**
+     * @TODO: PUT requests are not working with current testing-framework
+     * @return void
+     */
+    public function testUpdate(): void
+    {
+
+    }
+
+    public function testDelete(): void
+    {
+        $this->importDataSet(__DIR__ . '/../../Fixtures/tx_bwtodo_domain_model_profile.xml');
+        $this->importDataSet(__DIR__ . '/../../Fixtures/tx_bwtodo_domain_model_task.xml');
+
+        $request = (new InternalRequest())
+            ->withQueryParameters([
+                'id' => 1,
+                'type' => '2927392',
+                'tx_bwtodo_api[controller]' => 'Profile',
+                'tx_bwtodo_api[action]' => 'detail',
+                'tx_bwtodo_api[profile]' => 2,
+            ])
+            ->withMethod('DELETE');
+
+        // test response
+        $response = $this->executeFrontendSubRequest($request);
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertJson($response->getBody());
+
+        // test profiles in database
+        $profiles = $this->queryBuilder->select('*')
+            ->from('tx_bwtodo_domain_model_profile')
+            ->executeQuery()
+            ->fetchAllKeyValue();
+        $this->assertCount(2, $profiles, 'Only two profiles left in database');
+        $this->assertNotContains(2, array_keys($profiles), 'Profile with uid:2 no longer in database');
+
+        // test cascade remove of tasks
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_bwtodo_domain_model_task');
+        $tasks = $connection->createQueryBuilder()->select('*')
+            ->from('tx_bwtodo_domain_model_task')
+            ->executeQuery()
+            ->fetchAllKeyValue();
+        $this->assertCount(3, $tasks, 'Only 3 tasks left in database');
+        $this->assertNotContains(4, array_keys($profiles), 'Task with uid:4 no longer in database');
+        $this->assertNotContains(5, array_keys($profiles), 'Task with uid:5 no longer in database');
     }
 }
