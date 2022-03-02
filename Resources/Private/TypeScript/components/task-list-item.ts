@@ -1,8 +1,8 @@
 import {html, LitElement} from "lit";
 import {Task} from '../App'
 import {customElement, property} from "lit/decorators.js";
-import {bulmaStyles} from "@granite-elements/granite-lit-bulma/granite-lit-bulma";
-import moment from 'moment';
+import {bulmaStyles} from '@granite-elements/granite-lit-bulma/granite-lit-bulma-min.js'
+import moment from 'moment-mini';
 import {classMap} from 'lit/directives/class-map.js';
 import {css} from "lit-element";
 

@@ -1,9 +1,9 @@
 import {html, LitElement} from "lit";
 import {Profile} from '../App'
 import {customElement, property} from "lit/decorators.js";
-import {bulmaStyles} from "@granite-elements/granite-lit-bulma/granite-lit-bulma";
+import {bulmaStyles} from '@granite-elements/granite-lit-bulma/granite-lit-bulma-min.js'
 import {query} from "lit-element";
-import moment from "moment";
+import moment from "moment-mini";
 
 @customElement('task-list')
 class TaskList extends LitElement {

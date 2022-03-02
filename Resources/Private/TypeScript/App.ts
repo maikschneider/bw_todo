@@ -1,10 +1,9 @@
-import '../Scss/App.scss'
 import './components/profile-list'
 import './components/profile-list-item'
 import './components/task-list'
 import './components/task-list-item'
 
-import {bulmaStyles} from '@granite-elements/granite-lit-bulma/granite-lit-bulma.js'
+import {bulmaStyles} from '@granite-elements/granite-lit-bulma/granite-lit-bulma-min.js'
 import {LitElement, html} from 'lit'
 import {customElement, property} from 'lit/decorators.js'
 import {css} from 'lit-element'
