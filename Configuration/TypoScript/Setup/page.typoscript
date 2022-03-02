@@ -1,7 +1,7 @@
 page = PAGE
 page {
 	typeNum = 0
-	#shortcutIcon =
+	shortcutIcon = EXT:bw_todo/Resources/Public/Images/Icons/task.svg
 
 	meta {
 		X-UA-Compatible = ie=edge
@@ -13,14 +13,21 @@ page {
 	10.value = <todo-app></todo-app>
 
 	includeCSS {
-		app = EXT:bw_todo/Resources/Public/Css/dist/App.css
+		app = EXT:bw_todo/Resources/Public/Css/dist/App.min.css
 	}
 
 	includeJS {
-		app = EXT:bw_todo/Resources/Public/JavaScript/dist/App.js
+		app = EXT:bw_todo/Resources/Public/JavaScript/dist/App.min.js
 	}
 
 }
+
+[applicationContext matches "/^Development/"]
+	page {
+		includeCSS.app = EXT:bw_todo/Resources/Public/Css/dist/App.css
+		includeJS.app = EXT:bw_todo/Resources/Public/JavaScript/dist/App.js
+	}
+[GLOBAL]
 
 apiProfile = PAGE
 apiProfile {
