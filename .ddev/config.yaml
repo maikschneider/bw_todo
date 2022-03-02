@@ -21,6 +21,7 @@ hooks:
     - exec: vendor/bin/typo3cms database:updateschema
     - exec: chmod +x /var/www/html/.ddev/import-database.sh
     - exec: /var/www/html/.ddev/import-database.sh
+    - exec: mysql -uroot -proot -hdb -e "CREATE DATABASE IF NOT EXISTS testing; GRANT ALL ON testing.* TO 'db'@'%';"
 
 # Key features of ddev's config.yaml:
 

@@ -63,7 +63,7 @@
   "scripts": {
     "typo3-cms-scripts": [
       "ln -sfn ../../../ public/typo3conf/ext/bw_todo",
-      "vendor/bin/typo3cms extension:setup"
+      "vendor/bin/typo3cms install:fixfolderstructure"
     ],
     "post-autoload-dump": [
       "@typo3-cms-scripts"
