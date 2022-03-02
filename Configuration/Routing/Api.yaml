@@ -15,10 +15,14 @@ routeEnhancers:
         _controller: 'Profile::detail'
         _arguments:
           profile_id: 'profile'
+        requirements:
+          'profile_id': '[0-9]+'
       - routePath: '/profile/{profile_id}/task'
         _controller: 'Task::create'
         _arguments:
           profile_id: 'profile'
+        requirements:
+          'profile_id': '[0-9]+'
       - routePath: '/task/{task_id}'
         _controller: 'Task::delete'
         _arguments:
