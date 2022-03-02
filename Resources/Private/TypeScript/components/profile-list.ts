@@ -1,8 +1,7 @@
 import {html, LitElement} from "lit";
 import {Profile} from '../App'
-import {customElement, property} from "lit/decorators.js";
+import {customElement, property, query} from "lit/decorators.js";
 import {bulmaStyles} from '@granite-elements/granite-lit-bulma/granite-lit-bulma-min.js'
-import {query} from "lit-element";
 
 @customElement('profile-list')
 class ProfileList extends LitElement {

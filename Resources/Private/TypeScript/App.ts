@@ -4,9 +4,8 @@ import './components/task-list'
 import './components/task-list-item'
 
 import {bulmaStyles} from '@granite-elements/granite-lit-bulma/granite-lit-bulma-min.js'
-import {LitElement, html} from 'lit'
+import {LitElement, html, css} from 'lit'
 import {customElement, property} from 'lit/decorators.js'
-import {css} from 'lit-element'
 
 export interface Task {
     title: string
@@ -22,14 +21,10 @@ export interface Profile {
     tasks: Task[]
 }
 
-export interface ProfileListResponse extends Array<Profile> {
-}
-
-export interface TaskListResponse extends Array<Profile> {
-}
+LitElement.disableWarning?.('change-in-update');
 
 @customElement('todo-app')
-class App extends LitElement {
+export class App extends LitElement {
 
     static get styles() {
         return [bulmaStyles, css`
