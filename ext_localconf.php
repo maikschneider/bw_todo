@@ -23,15 +23,15 @@ defined('TYPO3_MODE') || die('Access denied.');
 
     // register FE-Plugins
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Blueways.BwTodo',
+        'BwTodo',
         'Api',
         [
-            \Blueways\BwTodo\Controller\ProfileController::class => 'list,show,create,delete,update',
-            \Blueways\BwTodo\Controller\TaskController::class => 'list,create,delete,update'
+            \Blueways\BwTodo\Controller\ProfileController::class => 'index,detail',
+            \Blueways\BwTodo\Controller\TaskController::class => 'create,delete'
         ],
         [
-            \Blueways\BwTodo\Controller\ProfileController::class => 'create,update',
-            \Blueways\BwTodo\Controller\TaskController::class => 'create,update'
+            \Blueways\BwTodo\Controller\ProfileController::class => '',
+            \Blueways\BwTodo\Controller\TaskController::class => ''
         ]
     );
 })();

@@ -1,0 +1,6 @@
+###############
+### BW_TODO ###
+###############
+plugin.tx_bwtodo {
+	persistence.storagePid = 2
+}

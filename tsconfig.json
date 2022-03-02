@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6",
+    "sourceMap": false,
+    "removeComments": true,
+    "pretty": true,
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "alwaysStrict": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "paths": {
+      "TYPO3/CMS/BwTodo/*": [
+        "Resources/Private/TypeScript/*",
+        "Resources/Public/JavaScript/*"
+      ]
+    },
+    "lib": [
+      "dom"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "types",
+      "./lib/types/index",
+      "./node_modules/sequelize/types/"
+    ],
+    "outDir": "Resources/Public/JavaScript"
+  },
+  "include": [
+    "Resources/Private/TypeScript/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "Configuration"
+  ]
+}

@@ -1,16 +1,27 @@
 routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: ''
+    map:
+      .json: 2927392
   BwTodoApi:
     type: Extbase
     extension: BwTodo
     plugin: Api
     routes:
       - routePath: '/profile'
-        _controller: 'Profile::list'
-      - routePath: '/task'
-        _controller: 'Task::list'
+        _controller: 'Profile::index'
       - routePath: '/profile/{profile_id}'
-        _controller: 'Profile::show'
+        _controller: 'Profile::detail'
         _arguments:
           profile_id: 'profile'
+      - routePath: '/profile/{profile_id}/task'
+        _controller: 'Task::create'
+        _arguments:
+          profile_id: 'profile'
+      - routePath: '/task/{task_id}'
+        _controller: 'Task::delete'
+        _arguments:
+          task_id: 'task'
         requirements:
           'profile_id': '[0-9]+'

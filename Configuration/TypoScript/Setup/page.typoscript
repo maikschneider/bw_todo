@@ -10,7 +10,15 @@ page {
 	}
 
 	10 = TEXT
-	10.value = Hello world
+	10.value = <todo-app></todo-app>
+
+	includeCSS {
+		app = EXT:bw_todo/Resources/Public/Css/dist/App.css
+	}
+
+	includeJS {
+		app = EXT:bw_todo/Resources/Public/JavaScript/dist/App.js
+	}
 
 }
 
@@ -22,6 +30,7 @@ apiProfile {
 	10.extensionName = BwTodo
 	10.pluginName = Api
 	10.vendorName = Blueways
+	10.persistence.storagePid = {$plugin.tx_bwtodo.persistence.storagePid}
 	config {
 		disableAllHeaderCode = 1
 		additionalHeaders = Content-type:application/json

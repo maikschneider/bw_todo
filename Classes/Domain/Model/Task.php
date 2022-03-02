@@ -2,11 +2,17 @@
 
 namespace Blueways\BwTodo\Domain\Model;
 
+use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Mvc\Request;
 
 class Task extends AbstractEntity
 {
 
+    /**
+     * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", options={"minimum": 1, "maximum": 255})
+     */
     protected string $title = '';
 
     protected string $description = '';
@@ -77,5 +83,36 @@ class Task extends AbstractEntity
     public function setProfile(?Profile $profile): void
     {
         $this->profile = $profile;
+    }
+
+    public static function createFromRequest(Request $request, $profile): self
+    {
+        $task = new self();
+        $task->updateFromRequest($request, $profile);
+
+        return $task;
+    }
+
+    public function updateFromRequest(Request $request, $profile): void
+    {
+        $body = $request->getParsedBody();
+        $this->profile = $profile;
+
+        if (isset($body['title']) && $body['title']) {
+            $this->title = (string)$body['title'];
+        }
+
+        if (isset($body['description']) && $body['description']) {
+            $this->description = (string)$body['description'];
+        }
+
+        if (isset($body['dueDate']) && $body['dueDate']) {
+            try {
+                $date = \DateTime::createFromFormat('d.m.Y-H:i', ($body['dueDate']));
+                $this->dueDate = $date;
+            } catch (\Exception $e) {
+
+            }
+        }
     }
 }

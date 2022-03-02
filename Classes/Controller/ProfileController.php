@@ -4,49 +4,112 @@ namespace Blueways\BwTodo\Controller;
 
 use Blueways\BwTodo\Domain\Model\Profile;
 use Blueways\BwTodo\Domain\Repository\ProfileRepository;
+use Blueways\BwTodo\Mvc\View\JsonView;
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Core\Http\JsonResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 class ProfileController extends ActionController
 {
 
-    protected $defaultViewObjectName = \TYPO3\CMS\Extbase\Mvc\View\JsonView::class;
+    protected $defaultViewObjectName = JsonView::class;
+
+    protected PersistenceManager $persistenceManager;
 
     protected ProfileRepository $profileRepository;
 
-    public function __construct(ProfileRepository $profileRepository)
+    public function __construct(ProfileRepository $profileRepository, PersistenceManager $persistenceManager)
     {
         $this->profileRepository = $profileRepository;
+        $this->persistenceManager = $persistenceManager;
     }
 
-    public function listAction(): ResponseInterface
+    public function indexAction(): ResponseInterface
+    {
+        $method = $this->request->getMethod();
+
+        if ($method === 'GET') {
+            return $this->list();
+        }
+
+        if ($method === 'POST') {
+            return $this->create();
+        }
+
+        return $this->jsonResponse()->withStatus(405);
+    }
+
+    public function detailAction(Profile $profile): ResponseInterface
+    {
+        $method = $this->request->getMethod();
+
+        if ($method === 'GET') {
+            return $this->show($profile);
+        }
+
+        if ($method === 'PATCH') {
+            return $this->update($profile);
+        }
+
+        if ($method === 'DELETE') {
+            return $this->delete($profile);
+        }
+
+        return $this->jsonResponse()->withStatus(405);
+    }
+
+    protected function list(): ResponseInterface
     {
         $profiles = $this->profileRepository->findAll();
-        $this->view->setConfiguration([
-            'profiles' => [
-                '_descendAll' => [
-                    '_only' => ['name', 'uid', 'tasks', 'title', 'description', 'dueDate'],
-                    '_recursive' => ['tasks'],
-                ]
-            ]
-        ]);
         $this->view->setVariablesToRender(['profiles']);
         $this->view->assign('profiles', $profiles);
         return $this->jsonResponse();
     }
 
-    public function showAction(Profile $profile): ResponseInterface
+    protected function create(): ResponseInterface
     {
-        $this->view->setConfiguration([
-            'profile' => [
-                '_only' => ['name', 'uid', 'tasks', 'title', 'description', 'dueDate'],
-                '_recursive' => ['tasks'],
-                '_descendAll' => []
-            ]
-        ]);
+        $profile = Profile::createFromRequest($this->request);
+
+        try {
+            $this->profileRepository->add($profile);
+            $this->persistenceManager->persistAll();
+        } catch (\Exception $e) {
+            return $this->jsonResponse()->withStatus(500);
+        }
+
+        return $this->show($profile);
+    }
+
+    protected function update(Profile $profile): ResponseInterface
+    {
+        $profile->updateFromRequest($this->request);
+
+        try {
+            $this->profileRepository->update($profile);
+            $this->persistenceManager->persistAll();
+        } catch (\Exception $e) {
+            return $this->jsonResponse()->withStatus(500);
+        }
+
+        return $this->show($profile);
+    }
+
+    protected function show(Profile $profile): ResponseInterface
+    {
         $this->view->setVariablesToRender(['profile']);
         $this->view->assign('profile', $profile);
+        return $this->jsonResponse();
+    }
+
+    protected function delete(Profile $profile): ResponseInterface
+    {
+        try {
+            $this->profileRepository->remove($profile);
+            $this->persistenceManager->persistAll();
+        } catch (\Exception $e) {
+            return $this->jsonResponse()->withStatus(500);
+        }
+
         return $this->jsonResponse();
     }
 

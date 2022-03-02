@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+
+	<tx_bwtodo_domain_model_task>
+		<uid>1</uid>
+		<pid>1</pid>
+		<title>Git checkout</title>
+		<description>Clone the repository with SSH</description>
+		<due_date>1648128720</due_date>
+		<profile>1</profile>
+	</tx_bwtodo_domain_model_task>
+
+	<tx_bwtodo_domain_model_task>
+		<uid>2</uid>
+		<pid>1</pid>
+		<title>Composer install</title>
+		<description>Install dependencies via composer</description>
+		<due_date>1648132320</due_date>
+		<profile>1</profile>
+	</tx_bwtodo_domain_model_task>
+
+	<tx_bwtodo_domain_model_task>
+		<uid>3</uid>
+		<pid>1</pid>
+		<title>Open App</title>
+		<description>Open the frontend in browser</description>
+		<due_date>1648135920</due_date>
+		<profile>1</profile>
+	</tx_bwtodo_domain_model_task>
+
+	<tx_bwtodo_domain_model_task>
+		<uid>4</uid>
+		<pid>1</pid>
+		<title>Paint fence</title>
+		<description>Add new color to old fence</description>
+		<profile>2</profile>
+	</tx_bwtodo_domain_model_task>
+
+	<tx_bwtodo_domain_model_task>
+		<uid>5</uid>
+		<pid>1</pid>
+		<title>Paint fence</title>
+		<description>Add new color to old fence</description>
+		<profile>2</profile>
+	</tx_bwtodo_domain_model_task>
+
+	<tx_bwtodo_domain_model_task>
+		<uid>6</uid>
+		<pid>1</pid>
+		<title>Water plants</title>
+		<profile>2</profile>
+	</tx_bwtodo_domain_model_task>
+
+</dataset>

@@ -31,14 +31,21 @@
     "typo3/cms-reports": "^11.5",
     "typo3/cms-setup": "^11.5",
     "typo3/cms-tstemplate": "^11.5",
-    "helhum/typo3-console": "^7.0"
+    "helhum/typo3-console": "^7.0",
+    "blueways/deployer-recipes": "^2.0"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "typo3/testing-framework": "@dev"
   },
   "autoload": {
     "psr-4": {
       "Blueways\\BwTodo\\": "Classes"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Blueways\\BwTodo\\Tests\\": "Tests"
     }
   },
   "extra": {
@@ -46,12 +53,17 @@
       "cms-package-dir": "{$vendor-dir}/typo3/cms",
       "web-dir": "public",
       "extension-key": "bw_todo"
+    },
+    "helhum/dotenv-connector": {
+      "env-file": ".env",
+      "adapter": "Helhum\\DotEnvConnector\\Adapter\\SymfonyDotEnv"
     }
   },
   "config": {
     "vendor-dir": "vendor",
     "allow-plugins": {
-      "typo3/*": true
+      "typo3/*": true,
+      "helhum/dotenv-connector": true
     }
   },
   "scripts": {
@@ -60,7 +72,14 @@
       "vendor/bin/typo3cms extension:setup"
     ],
     "post-autoload-dump": [
-      "@typo3-cms-scripts"
+      "@typo3-cms-scripts",
+      "@prepare-extension-test-structure"
+    ],
+    "tests": [
+      "vendor/bin/phpunit -c Build/FunctionalTests.xml Tests/Functional"
+    ],
+    "prepare-extension-test-structure": [
+      "Nimut\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
     ]
   }
 }

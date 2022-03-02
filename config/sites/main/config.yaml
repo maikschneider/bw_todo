@@ -13,12 +13,6 @@ languages:
     direction: ltr
     flag: us
 rootPageId: 1
-routeEnhancers:
-  PageTypeSuffix:
-    type: PageType
-    default: ''
-    map:
-      .json: 2927392
 websiteTitle: ''
 imports:
   -
