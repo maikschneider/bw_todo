@@ -55,9 +55,8 @@ return [
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_bwtodo_domain_model_profile',
                 'items' => [
-                    ['-', 0]
                 ],
-                'eval' => ''
+                'eval' => 'int'
             ]
         ],
         'title' => [
