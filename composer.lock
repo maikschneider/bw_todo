@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c7c9b26315c5ddf420878274539719a",
+    "content-hash": "dc12bfeaffdae1acef7c1d5178beefa2",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5369,95 +5369,6 @@
             "time": "2022-01-02T09:55:41+00:00"
         },
         {
-            "name": "symfony/var-dumper",
-            "version": "v5.4.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "6efddb1cf6af5270b21c48c6103e81f920c220f0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6efddb1cf6af5270b21c48c6103e81f920c220f0",
-                "reference": "6efddb1cf6af5270b21c48c6103e81f920c220f0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/polyfill-mbstring": "~1.0",
-                "symfony/polyfill-php80": "^1.16"
-            },
-            "conflict": {
-                "phpunit/phpunit": "<5.4.3",
-                "symfony/console": "<4.4"
-            },
-            "require-dev": {
-                "ext-iconv": "*",
-                "symfony/console": "^4.4|^5.0|^6.0",
-                "symfony/process": "^4.4|^5.0|^6.0",
-                "symfony/uid": "^5.1|^6.0",
-                "twig/twig": "^2.13|^3.0.4"
-            },
-            "suggest": {
-                "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
-                "ext-intl": "To show region name in time zone dump",
-                "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
-            },
-            "bin": [
-                "Resources/bin/var-dump-server"
-            ],
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "Resources/functions/dump.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Component\\VarDumper\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Provides mechanisms for walking through any arbitrary PHP variable",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "debug",
-                "dump"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.5"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2022-02-21T15:00:19+00:00"
-        },
-        {
             "name": "symfony/var-exporter",
             "version": "v6.0.3",
             "source": {
@@ -5665,72 +5576,6 @@
                 "source": "https://github.com/TYPO3/class-alias-loader/tree/v1.1.3"
             },
             "time": "2020-05-24T13:03:22+00:00"
-        },
-        {
-            "name": "typo3/cms-adminpanel",
-            "version": "v11.5.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TYPO3-CMS/adminpanel.git",
-                "reference": "aaf386e3aff864bba8c701c379821e47673f7a8f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/adminpanel/zipball/aaf386e3aff864bba8c701c379821e47673f7a8f",
-                "reference": "aaf386e3aff864bba8c701c379821e47673f7a8f",
-                "shasum": ""
-            },
-            "require": {
-                "psr/http-message": "^1.0",
-                "psr/http-server-handler": "^1.0",
-                "psr/http-server-middleware": "^1.0",
-                "symfony/var-dumper": "^5.4",
-                "typo3/cms-backend": "11.5.7",
-                "typo3/cms-core": "11.5.7",
-                "typo3/cms-fluid": "11.5.7",
-                "typo3/cms-frontend": "11.5.7",
-                "typo3fluid/fluid": "^2.7.1"
-            },
-            "conflict": {
-                "typo3/cms": "*"
-            },
-            "type": "typo3-cms-framework",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "11.5.x-dev"
-                },
-                "typo3/cms": {
-                    "Package": {
-                        "partOfFactoryDefault": true
-                    },
-                    "extension-key": "adminpanel"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TYPO3\\CMS\\Adminpanel\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "TYPO3 Core Team",
-                    "email": "typo3cms@typo3.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "The TYPO3 admin panel provides a panel with additional functionality in the frontend (Debugging, Caching, Preview...)",
-            "homepage": "https://typo3.org",
-            "support": {
-                "chat": "https://typo3.org/help",
-                "docs": "https://docs.typo3.org/c/typo3/cms-adminpanel/11.5/en-us/",
-                "issues": "https://forge.typo3.org",
-                "source": "https://github.com/typo3/typo3"
-            },
-            "time": "2022-02-22T09:27:56+00:00"
         },
         {
             "name": "typo3/cms-backend",
@@ -6174,69 +6019,6 @@
             "time": "2022-02-22T09:27:56+00:00"
         },
         {
-            "name": "typo3/cms-dashboard",
-            "version": "v11.5.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TYPO3-CMS/dashboard.git",
-                "reference": "284842ece31a74e7c31f915ee424f5a19b49e1d0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/dashboard/zipball/284842ece31a74e7c31f915ee424f5a19b49e1d0",
-                "reference": "284842ece31a74e7c31f915ee424f5a19b49e1d0",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-backend": "11.5.7",
-                "typo3/cms-core": "11.5.7",
-                "typo3/cms-extbase": "11.5.7",
-                "typo3/cms-fluid": "11.5.7",
-                "typo3/cms-frontend": "11.5.7"
-            },
-            "conflict": {
-                "typo3/cms": "*"
-            },
-            "type": "typo3-cms-framework",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "11.5.x-dev"
-                },
-                "typo3/cms": {
-                    "extension-key": "dashboard",
-                    "Package": {
-                        "serviceProvider": "TYPO3\\CMS\\Dashboard\\ServiceProvider",
-                        "partOfFactoryDefault": true
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TYPO3\\CMS\\Dashboard\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "TYPO3 Core Team",
-                    "email": "typo3cms@typo3.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Dashboard for TYPO3.",
-            "homepage": "https://typo3.org",
-            "support": {
-                "chat": "https://typo3.org/help",
-                "docs": "https://docs.typo3.org/c/typo3/cms-dashboard/11.5/en-us/",
-                "issues": "https://forge.typo3.org",
-                "source": "https://github.com/typo3/typo3"
-            },
-            "time": "2022-02-22T09:27:56+00:00"
-        },
-        {
             "name": "typo3/cms-extbase",
             "version": "v11.5.7",
             "source": {
@@ -6367,66 +6149,6 @@
             "time": "2022-02-22T09:27:56+00:00"
         },
         {
-            "name": "typo3/cms-filelist",
-            "version": "v11.5.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TYPO3-CMS/filelist.git",
-                "reference": "9c8a299209567c286cc1def6ba64b49d8cbb0a07"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/filelist/zipball/9c8a299209567c286cc1def6ba64b49d8cbb0a07",
-                "reference": "9c8a299209567c286cc1def6ba64b49d8cbb0a07",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "11.5.7"
-            },
-            "conflict": {
-                "typo3/cms": "*"
-            },
-            "type": "typo3-cms-framework",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "11.5.x-dev"
-                },
-                "typo3/cms": {
-                    "Package": {
-                        "protected": true,
-                        "partOfFactoryDefault": true,
-                        "partOfMinimalUsableSystem": true
-                    },
-                    "extension-key": "filelist"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TYPO3\\CMS\\Filelist\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "TYPO3 Core Team",
-                    "email": "typo3cms@typo3.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Listing of files in the directory",
-            "homepage": "https://typo3.org",
-            "support": {
-                "chat": "https://typo3.org/help",
-                "docs": "https://docs.typo3.org",
-                "issues": "https://forge.typo3.org",
-                "source": "https://github.com/typo3/typo3"
-            },
-            "time": "2022-02-22T09:27:56+00:00"
-        },
-        {
             "name": "typo3/cms-fluid",
             "version": "v11.5.7",
             "source": {
@@ -6485,70 +6207,6 @@
             "support": {
                 "chat": "https://typo3.org/help",
                 "docs": "https://docs.typo3.org/other/typo3/view-helper-reference/main/en-us/",
-                "issues": "https://forge.typo3.org",
-                "source": "https://github.com/typo3/typo3"
-            },
-            "time": "2022-02-22T09:27:56+00:00"
-        },
-        {
-            "name": "typo3/cms-form",
-            "version": "v11.5.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TYPO3-CMS/form.git",
-                "reference": "dcc93d18539eca1469ca74c3b07512a94993dbf6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/form/zipball/dcc93d18539eca1469ca74c3b07512a94993dbf6",
-                "reference": "dcc93d18539eca1469ca74c3b07512a94993dbf6",
-                "shasum": ""
-            },
-            "require": {
-                "psr/http-message": "^1.0",
-                "symfony/expression-language": "^5.4",
-                "typo3/cms-core": "11.5.7"
-            },
-            "conflict": {
-                "typo3/cms": "*"
-            },
-            "suggest": {
-                "typo3/cms-filelist": "Listing of files in the directory",
-                "typo3/cms-impexp": "Import and Export of records from TYPO3 in a custom serialized format (.T3D) for data exchange with other TYPO3 systems."
-            },
-            "type": "typo3-cms-framework",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "11.5.x-dev"
-                },
-                "typo3/cms": {
-                    "Package": {
-                        "partOfFactoryDefault": true
-                    },
-                    "extension-key": "form"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TYPO3\\CMS\\Form\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "TYPO3 Core Team",
-                    "email": "typo3cms@typo3.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Form Library, Plugin and Editor",
-            "homepage": "https://typo3.org",
-            "support": {
-                "chat": "https://typo3.org/help",
-                "docs": "https://docs.typo3.org/c/typo3/cms-form/11.5/en-us",
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
@@ -6673,67 +6331,6 @@
             "support": {
                 "chat": "https://typo3.org/help",
                 "docs": "https://docs.typo3.org/c/typo3/cms-impexp/11.5/en-us/",
-                "issues": "https://forge.typo3.org",
-                "source": "https://github.com/typo3/typo3"
-            },
-            "time": "2022-02-22T09:27:56+00:00"
-        },
-        {
-            "name": "typo3/cms-info",
-            "version": "v11.5.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TYPO3-CMS/info.git",
-                "reference": "6907c40bb6831a4fc9ccb062f90fdb8cd33c5a81"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/info/zipball/6907c40bb6831a4fc9ccb062f90fdb8cd33c5a81",
-                "reference": "6907c40bb6831a4fc9ccb062f90fdb8cd33c5a81",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "11.5.7"
-            },
-            "conflict": {
-                "typo3/cms": "*"
-            },
-            "replace": {
-                "typo3/cms-info-pagetsconfig": "*"
-            },
-            "type": "typo3-cms-framework",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "11.5.x-dev"
-                },
-                "typo3/cms": {
-                    "Package": {
-                        "partOfFactoryDefault": true
-                    },
-                    "extension-key": "info"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TYPO3\\CMS\\Info\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "TYPO3 Core Team",
-                    "email": "typo3cms@typo3.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Shows various infos",
-            "homepage": "https://typo3.org",
-            "support": {
-                "chat": "https://typo3.org/help",
-                "docs": "https://docs.typo3.org",
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
@@ -6927,67 +6524,6 @@
             "time": "2022-02-22T09:27:56+00:00"
         },
         {
-            "name": "typo3/cms-reports",
-            "version": "v11.5.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TYPO3-CMS/reports.git",
-                "reference": "cfc855374ccf73ca9304b95e0c69a38e2ba52e52"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/reports/zipball/cfc855374ccf73ca9304b95e0c69a38e2ba52e52",
-                "reference": "cfc855374ccf73ca9304b95e0c69a38e2ba52e52",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "11.5.7"
-            },
-            "conflict": {
-                "typo3/cms": "*"
-            },
-            "suggest": {
-                "typo3/cms-scheduler": "Determine system's status and send it via email"
-            },
-            "type": "typo3-cms-framework",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "11.5.x-dev"
-                },
-                "typo3/cms": {
-                    "Package": {
-                        "partOfFactoryDefault": true
-                    },
-                    "extension-key": "reports"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TYPO3\\CMS\\Reports\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "TYPO3 Core Team",
-                    "email": "typo3cms@typo3.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "The reports module groups several system reports.",
-            "homepage": "https://typo3.org",
-            "support": {
-                "chat": "https://typo3.org/help",
-                "docs": "https://docs.typo3.org",
-                "issues": "https://forge.typo3.org",
-                "source": "https://github.com/typo3/typo3"
-            },
-            "time": "2022-02-22T09:27:56+00:00"
-        },
-        {
             "name": "typo3/cms-setup",
             "version": "v11.5.7",
             "source": {
@@ -7036,64 +6572,6 @@
                 }
             ],
             "description": "Allows users to edit a limited set of options for their user profile, eg. preferred language and their name and email address.",
-            "homepage": "https://typo3.org",
-            "support": {
-                "chat": "https://typo3.org/help",
-                "docs": "https://docs.typo3.org",
-                "issues": "https://forge.typo3.org",
-                "source": "https://github.com/typo3/typo3"
-            },
-            "time": "2022-02-22T09:27:56+00:00"
-        },
-        {
-            "name": "typo3/cms-tstemplate",
-            "version": "v11.5.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TYPO3-CMS/tstemplate.git",
-                "reference": "80a8be39bc2bf0c2ff1c5689068e590fa9245ae5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/tstemplate/zipball/80a8be39bc2bf0c2ff1c5689068e590fa9245ae5",
-                "reference": "80a8be39bc2bf0c2ff1c5689068e590fa9245ae5",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "11.5.7"
-            },
-            "conflict": {
-                "typo3/cms": "*"
-            },
-            "type": "typo3-cms-framework",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "11.5.x-dev"
-                },
-                "typo3/cms": {
-                    "Package": {
-                        "partOfFactoryDefault": true
-                    },
-                    "extension-key": "tstemplate"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TYPO3\\CMS\\Tstemplate\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "TYPO3 Core Team",
-                    "email": "typo3cms@typo3.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Framework for management of TypoScript template records for the CMS frontend.",
             "homepage": "https://typo3.org",
             "support": {
                 "chat": "https://typo3.org/help",
@@ -8066,12 +7544,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "41c974c72e1ea40af336eedf414ef7540e46dc18"
+                "reference": "fd19cc4f59cd1c94820fa007437b6d22e8959c7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/41c974c72e1ea40af336eedf414ef7540e46dc18",
-                "reference": "41c974c72e1ea40af336eedf414ef7540e46dc18",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/fd19cc4f59cd1c94820fa007437b6d22e8959c7e",
+                "reference": "fd19cc4f59cd1c94820fa007437b6d22e8959c7e",
                 "shasum": ""
             },
             "conflict": {
@@ -8136,9 +7614,9 @@
                 "doctrine/mongodb-odm": ">=1,<1.0.2",
                 "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
-                "dolibarr/dolibarr": "<=14.0.5|>= 3.3.beta1, < 13.0.2",
+                "dolibarr/dolibarr": "<16|>= 3.3.beta1, < 13.0.2",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=7,<7.80|>=8,<8.9.19|>=9,<9.1.13|>=9.2,<9.2.6",
+                "drupal/core": ">=7,<7.88|>=8,<9.2.13|>=9.3,<9.3.6",
                 "drupal/drupal": ">=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
                 "dweeves/magmi": "<=0.7.24",
                 "ecodev/newsletter": "<=4",
@@ -8231,7 +7709,7 @@
                 "league/commonmark": "<0.18.3",
                 "league/flysystem": "<1.1.4|>=2,<2.1.1",
                 "lexik/jwt-authentication-bundle": "<2.10.7|>=2.11,<2.11.3",
-                "librenms/librenms": "<22.2",
+                "librenms/librenms": "<22.2.2",
                 "limesurvey/limesurvey": "<3.27.19",
                 "livehelperchat/livehelperchat": "<=3.91",
                 "livewire/livewire": ">2.2.4,<2.2.6",
@@ -8514,7 +7992,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-01T10:08:55+00:00"
+            "time": "2022-03-01T23:08:58+00:00"
         },
         {
             "name": "sebastian/cli-parser",
