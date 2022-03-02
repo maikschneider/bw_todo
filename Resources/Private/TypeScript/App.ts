@@ -3,9 +3,9 @@ import './components/profile-list-item'
 import './components/task-list'
 import './components/task-list-item'
 
-import {bulmaStyles} from '@granite-elements/granite-lit-bulma/granite-lit-bulma-min.js'
-import {LitElement, html, css} from 'lit'
-import {customElement, property} from 'lit/decorators.js'
+import { bulmaStyles } from '@granite-elements/granite-lit-bulma/granite-lit-bulma-min.js'
+import { LitElement, html, css } from 'lit'
+import { customElement, property } from 'lit/decorators.js'
 
 export interface Task {
     title: string
@@ -21,18 +21,17 @@ export interface Profile {
     tasks: Task[]
 }
 
-LitElement.disableWarning?.('change-in-update');
+LitElement.disableWarning?.('change-in-update')
 
 @customElement('todo-app')
 export class App extends LitElement {
-
-    static get styles() {
-        return [bulmaStyles, css`
-			.progress-bar {
-				height: 2rem;
-			}
-    	`]
-    }
+  static get styles () {
+    return [bulmaStyles, css`
+        .progress-bar {
+            height: 2rem;
+            }`
+    ]
+  }
 
     @property()
     selectedProfile?: Profile = null
@@ -43,41 +42,40 @@ export class App extends LitElement {
     @property()
     isOnload: boolean = true
 
-    _profileSelected(event) {
-        this.selectedProfile = event.detail
-        localStorage.setItem('selectedProfile', event.detail.uid)
+    _profileSelected (event) {
+      this.selectedProfile = event.detail
+      localStorage.setItem('selectedProfile', event.detail.uid)
     }
 
-    _loadingProgressChanged(event) {
-        this.isLoading = event.detail
+    _loadingProgressChanged (event) {
+      this.isLoading = event.detail
     }
 
-    connectedCallback() {
-        super.connectedCallback();
-        window.addEventListener('profile-item-selected', this._profileSelected.bind(this))
-        window.addEventListener('new-loading-progress', this._loadingProgressChanged.bind(this))
-        window.addEventListener('profile-switch', this.switchProfile.bind(this))
-        window.addEventListener('profile-onload-request-done', () => {
-            this.isOnload = false
-        });
+    connectedCallback () {
+      super.connectedCallback()
+      window.addEventListener('profile-item-selected', this._profileSelected.bind(this))
+      window.addEventListener('new-loading-progress', this._loadingProgressChanged.bind(this))
+      window.addEventListener('profile-switch', this.switchProfile.bind(this))
+      window.addEventListener('profile-onload-request-done', () => {
+        this.isOnload = false
+      })
     }
 
-    switchProfile() {
-        this.selectedProfile = null
-        localStorage.removeItem('selectedProfile')
+    switchProfile () {
+      this.selectedProfile = null
+      localStorage.removeItem('selectedProfile')
     }
 
-    render() {
-
-        let currentView = html`
+    render () {
+      let currentView = html`
             <profile-list ?hidden="${this.isOnload}"></profile-list>`
 
-        if (this.selectedProfile) {
-            currentView = html`
+      if (this.selectedProfile) {
+        currentView = html`
                 <task-list .selectedProfile="${this.selectedProfile}"></task-list>`
-        }
+      }
 
-        return html`
+      return html`
 
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
@@ -90,8 +88,10 @@ export class App extends LitElement {
             <div class="container is-max-desktop main px-2 my-6">
 
                 <div class="progress-bar">
-                    ${!this.isLoading ? null : html`
-                        <progress class="progress is-small is-primary" max="100">15%</progress>`}
+                    ${!this.isLoading
+                        ? null
+                        : html`
+                            <progress class="progress is-small is-primary" max="100">15%</progress>`}
                 </div>
 
                 ${currentView}
