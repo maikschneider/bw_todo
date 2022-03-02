@@ -8,7 +8,6 @@ use TYPO3\CMS\Extbase\Mvc\Request;
 
 class Task extends AbstractEntity
 {
-
     /**
      * @var string
      * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", options={"minimum": 1, "maximum": 255})
@@ -111,7 +110,6 @@ class Task extends AbstractEntity
                 $date = \DateTime::createFromFormat('d.m.Y-H:i', ($body['dueDate']));
                 $this->dueDate = $date;
             } catch (\Exception $e) {
-
             }
         }
     }

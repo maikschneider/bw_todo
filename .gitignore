@@ -3,3 +3,4 @@ public
 !Resources/Public
 var
 vendor
+.php-cs-fixer.cache

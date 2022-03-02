@@ -12,7 +12,6 @@ use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 class TaskController extends ActionController
 {
-
     protected $defaultViewObjectName = JsonView::class;
 
     protected PersistenceManager $persistenceManager;
@@ -52,5 +51,4 @@ class TaskController extends ActionController
 
         return $this->jsonResponse('{}');
     }
-
 }

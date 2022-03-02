@@ -11,7 +11,6 @@ use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 class ProfileController extends ActionController
 {
-
     protected $defaultViewObjectName = JsonView::class;
 
     protected PersistenceManager $persistenceManager;
@@ -112,5 +111,4 @@ class ProfileController extends ActionController
 
         return $this->jsonResponse();
     }
-
 }

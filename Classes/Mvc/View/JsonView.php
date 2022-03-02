@@ -8,7 +8,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class JsonView extends ExtbaseJsonView
 {
-
     protected $configuration = [
         'profiles' => [
             '_descendAll' => [

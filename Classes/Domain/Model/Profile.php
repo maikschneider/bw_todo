@@ -8,7 +8,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Profile extends AbstractEntity
 {
-
     /**
      * @var string
      * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", options={"minimum": 1, "maximum": 255})
