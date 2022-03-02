@@ -1,7 +1,6 @@
 base: 'https://bw-todo.ddev.site/'
 languages:
-  -
-    title: English
+  - title: English
     enabled: true
     languageId: 0
     base: /
@@ -15,5 +14,4 @@ languages:
 rootPageId: 1
 websiteTitle: ''
 imports:
-  -
-    resource: 'EXT:bw_todo/Configuration/Routing/Api.yaml'
+  - resource: 'EXT:bw_todo/Configuration/Routing/Api.yaml'
