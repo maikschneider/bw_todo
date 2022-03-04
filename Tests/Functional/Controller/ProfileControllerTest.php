@@ -150,6 +150,7 @@ class ProfileControllerTest extends FunctionalTestCase
         $postData = [
             'name' => 'Test-Todo'
         ];
+
         $body = (new StreamFactory())->createStream(http_build_query($postData));
 
         $request = (new InternalRequest())
@@ -171,9 +172,16 @@ class ProfileControllerTest extends FunctionalTestCase
         // test response object
         $profile = json_decode($response->getBody(), false, 512, JSON_THROW_ON_ERROR);
         $this->assertIsObject($profile);
+        $this->assertEquals('Test-Todo', $profile->name);
+        $this->assertEquals(1, $profile->uid);
 
-        // @TODO: POST request does not submit form data
-        //$this->assertEquals($postData['name'], $profile->name);
+        // test database
+        $profiles = $this->queryBuilder->select('*')
+            ->from('tx_bwtodo_domain_model_profile')
+            ->executeQuery()
+            ->fetchAllAssociative();
+        $this->assertCount(1, $profiles, 'Only one profile in database');
+        $this->assertEquals('Test-Todo', $profiles[0]['name']);
     }
 
     /**
