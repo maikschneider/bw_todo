@@ -101,12 +101,52 @@ class TaskControllerTest extends FunctionalTestCase
         $this->assertNotContains(3, array_keys($tasks), 'Task with uid:3 no longer in database');
     }
 
-    /**
-     * @TODO: Since POST requests are not working with current testing framework
-     * @return void
-     */
     public function testCreate(): void
     {
+        $this->importDataSet(__DIR__ . '/../../Fixtures/tx_bwtodo_domain_model_profile.xml');
 
+        $postData = [
+            'title' => 'Test-Task',
+            'description' => 'Lorem ipsum',
+            'dueDate' => '04.03.2022-07:09'
+        ];
+
+        $body = (new StreamFactory())->createStream(http_build_query($postData));
+
+        $request = (new InternalRequest())
+            ->withQueryParameters([
+                'id' => 1,
+                'type' => '2927392',
+                'tx_bwtodo_api[controller]' => 'Task',
+                'tx_bwtodo_api[action]' => 'create',
+                'tx_bwtodo_api[profile]' => 1,
+            ])
+            ->withMethod('POST')
+            ->withBody($body);
+
+        // test response
+        $response = $this->executeFrontendSubRequest($request);
+        $this->assertEquals(200, $response->getStatusCode());
+        $body = $response->getBody();
+        $this->assertJson($body);
+
+        // test response object
+        $task = json_decode($response->getBody(), false, 512, JSON_THROW_ON_ERROR);
+        $this->assertIsObject($task);
+        $this->assertEquals('Test-Task', $task->title);
+        $this->assertEquals('Lorem ipsum', $task->description);
+        $this->assertEquals(1, $task->uid);
+        $this->assertEquals('2022-03-04T07:09:00+00:00', $task->dueDate);
+
+        // test database
+        $tasks = $this->queryBuilder->select('*')
+            ->from('tx_bwtodo_domain_model_task')
+            ->executeQuery()
+            ->fetchAllAssociative();
+        $this->assertCount(1, $tasks, 'Only one task in database');
+        $this->assertEquals('Test-Task', $tasks[0]['title']);
+        $this->assertEquals('Lorem ipsum', $tasks[0]['description']);
+        $this->assertEquals(1, $tasks[0]['profile']);
+        $this->assertEquals(1646377740, $tasks[0]['due_date']);
     }
 }
