@@ -26,9 +26,15 @@
     "helhum/typo3-console": "^7.0",
     "blueways/deployer-recipes": "^2.0"
   },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/maikschneider/testing-framework"
+    }
+  ],
   "require-dev": {
     "roave/security-advisories": "dev-latest",
-    "typo3/testing-framework": "@dev",
+    "typo3/testing-framework": "dev-main",
     "friendsofphp/php-cs-fixer": "^3.6.0",
     "saschaegerer/phpstan-typo3": "^1.1.2"
   },
