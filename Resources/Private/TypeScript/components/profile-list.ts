@@ -24,7 +24,7 @@ export class ProfileList extends LitElement {
           window.dispatchEvent(new CustomEvent('new-loading-progress', { detail: false }))
         })
         .catch((error) => {
-          console.error('Error:', error)
+          window.dispatchEvent(new CustomEvent('loading-error', { detail: error }))
         })
     }
 
@@ -76,7 +76,7 @@ export class ProfileList extends LitElement {
           this.profileFormInput.value = ''
         })
         .catch((error) => {
-          console.error('Error:', error)
+          window.dispatchEvent(new CustomEvent('loading-error', { detail: error }))
         })
     }
 

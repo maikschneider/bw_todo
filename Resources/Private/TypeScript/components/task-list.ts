@@ -63,7 +63,7 @@ export class TaskList extends LitElement {
           window.dispatchEvent(new CustomEvent('new-loading-progress', { detail: false }))
         })
         .catch((error) => {
-          console.error('Error:', error)
+          window.dispatchEvent(new CustomEvent('loading-error', { detail: error }))
         })
     }
 

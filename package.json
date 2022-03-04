@@ -19,7 +19,7 @@
     "terser-webpack-plugin": "^5.3.1"
   },
   "scripts": {
-    "lint": "eslint \"Resources/Private/TypeScript/**/*.{js,ts}\"",
+    "lint": "npx eslint \"Resources/Private/TypeScript/**/*.{js,ts}\" --fix",
     "start": "npx webpack --config webpack.config.js --stats-children",
     "build": "npx webpack --config webpack.prod.js"
   },

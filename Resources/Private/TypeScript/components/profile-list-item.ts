@@ -34,6 +34,8 @@ export class ProfileListItem extends LitElement {
           window.dispatchEvent(new CustomEvent('new-loading-progress', { detail: false }))
           window.dispatchEvent(new CustomEvent('profile-item-deleted'))
           this.requestUpdate()
+        }).catch(error => {
+          window.dispatchEvent(new CustomEvent('loading-error', { detail: error }))
         })
     }
 
@@ -51,6 +53,9 @@ export class ProfileListItem extends LitElement {
           this.showInput = false
           this.requestUpdate()
           window.dispatchEvent(new CustomEvent('new-loading-progress', { detail: false }))
+        })
+        .catch(error => {
+          window.dispatchEvent(new CustomEvent('loading-error', { detail: error }))
         })
     }
 

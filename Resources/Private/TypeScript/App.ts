@@ -43,6 +43,9 @@ export class App extends LitElement {
     @property()
     isOnload: boolean = true
 
+    @property()
+    errorMessage: string = ''
+
     _profileSelected (event) {
       this.selectedProfile = event.detail
       localStorage.setItem('selectedProfile', event.detail.uid)
@@ -52,11 +55,16 @@ export class App extends LitElement {
       this.isLoading = event.detail
     }
 
+    _onLoadingError (event) {
+      this.errorMessage = 'hello world'
+    }
+
     connectedCallback () {
       super.connectedCallback()
       window.addEventListener('profile-item-selected', this._profileSelected.bind(this))
       window.addEventListener('new-loading-progress', this._loadingProgressChanged.bind(this))
       window.addEventListener('profile-switch', this.switchProfile.bind(this))
+      window.addEventListener('loading-error', this._onLoadingError.bind(this))
       window.addEventListener('profile-onload-request-done', () => {
         this.isOnload = false
       })
@@ -75,6 +83,21 @@ export class App extends LitElement {
         currentView = html`
                 <task-list .selectedProfile="${this.selectedProfile}"></task-list>`
       }
+
+      const errorMessage = !this.errorMessage
+        ? null
+        : html`
+          <article class="message is-danger">
+              <div class="message-header">
+                  <p>Error</p>
+                  <button @click="${() => { this.errorMessage = '' }}" class="delete" aria-label="delete"></button>
+              </div>
+              <div class="message-body">
+                  Oops, an error occurred!<br />
+                  Message: <strong>${this.errorMessage}</strong>
+              </div>
+          </article>
+        `
 
       return html`
 
@@ -95,6 +118,8 @@ export class App extends LitElement {
             </nav>
 
             <div class="container is-max-desktop main px-2 my-6">
+
+                ${errorMessage}
 
                 <div class="progress-bar">
                     ${!this.isLoading
