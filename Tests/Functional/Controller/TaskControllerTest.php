@@ -111,8 +111,6 @@ class TaskControllerTest extends FunctionalTestCase
             'dueDate' => '04.03.2022-07:09'
         ];
 
-        $body = (new StreamFactory())->createStream(http_build_query($postData));
-
         $request = (new InternalRequest())
             ->withQueryParameters([
                 'id' => 1,
@@ -122,7 +120,7 @@ class TaskControllerTest extends FunctionalTestCase
                 'tx_bwtodo_api[profile]' => 1,
             ])
             ->withMethod('POST')
-            ->withBody($body);
+            ->withParsedBody($postData);
 
         // test response
         $response = $this->executeFrontendSubRequest($request);

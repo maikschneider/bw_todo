@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Blueways\BwTodo\Tests\Functional\Controller;
 
@@ -86,8 +87,8 @@ class ProfileControllerTest extends FunctionalTestCase
 
         // test response and empty result set
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertJson($response->getBody());
-        $this->assertEquals([], json_decode($response->getBody(), false, 512, JSON_THROW_ON_ERROR));
+        $this->assertJson((string)$response->getBody());
+        $this->assertEquals([], json_decode((string)$response->getBody(), false, 512, JSON_THROW_ON_ERROR));
     }
 
     public function testList(): void
@@ -105,10 +106,10 @@ class ProfileControllerTest extends FunctionalTestCase
 
         // test response
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertJson($response->getBody());
+        $this->assertJson((string)$response->getBody());
 
         // test result count
-        $profiles = json_decode($response->getBody(), false, 512, JSON_THROW_ON_ERROR);
+        $profiles = json_decode((string)$response->getBody(), false, 512, JSON_THROW_ON_ERROR);
         $this->assertCount(3, $profiles);
 
         // test data types
@@ -133,8 +134,8 @@ class ProfileControllerTest extends FunctionalTestCase
         );
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertJson($response->getBody());
-        $profile = json_decode($response->getBody(), false, 512, JSON_THROW_ON_ERROR);
+        $this->assertJson((string)$response->getBody());
+        $profile = json_decode((string)$response->getBody(), false, 512, JSON_THROW_ON_ERROR);
         $this->assertIsObject($profile);
 
         $expectedProfile = [
@@ -151,8 +152,6 @@ class ProfileControllerTest extends FunctionalTestCase
             'name' => 'Test-Todo'
         ];
 
-        $body = (new StreamFactory())->createStream(http_build_query($postData));
-
         $request = (new InternalRequest())
             ->withQueryParameters([
                 'id' => 1,
@@ -161,16 +160,16 @@ class ProfileControllerTest extends FunctionalTestCase
                 'tx_bwtodo_api[action]' => 'index',
             ])
             ->withMethod('POST')
-            ->withBody($body);
+            ->withParsedBody($postData);
 
         // test response
         $response = $this->executeFrontendSubRequest($request);
         $this->assertEquals(200, $response->getStatusCode());
-        $body = $response->getBody();
+        $body = (string)$response->getBody();
         $this->assertJson($body);
 
         // test response object
-        $profile = json_decode($response->getBody(), false, 512, JSON_THROW_ON_ERROR);
+        $profile = json_decode((string)$response->getBody(), false, 512, JSON_THROW_ON_ERROR);
         $this->assertIsObject($profile);
         $this->assertEquals('Test-Todo', $profile->name);
         $this->assertEquals(1, $profile->uid);
@@ -211,7 +210,7 @@ class ProfileControllerTest extends FunctionalTestCase
         // test response
         $response = $this->executeFrontendSubRequest($request);
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertJson($response->getBody());
+        $this->assertJson((string)$response->getBody());
 
         // test profiles in database
         $profiles = $this->queryBuilder->select('*')
