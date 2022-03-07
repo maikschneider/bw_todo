@@ -27,20 +27,6 @@ class TaskControllerTest extends FunctionalTestCase
         'typo3conf/ext/bw_todo'
     ];
 
-    protected array $configurationToUseInTestInstance = [
-        'DB' => [
-            'Connections' => [
-                'Default' => [
-                    'dbname' => 'testing',
-                    'host' => 'db',
-                    'password' => 'root',
-                    'port' => '3306',
-                    'user' => 'root',
-                ],
-            ],
-        ],
-    ];
-
     protected function setUp(): void
     {
         parent::setUp();
