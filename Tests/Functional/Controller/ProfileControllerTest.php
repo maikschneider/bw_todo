@@ -3,16 +3,11 @@ declare(strict_types=1);
 
 namespace Blueways\BwTodo\Tests\Functional\Controller;
 
-use Blueways\BwTodo\Domain\Repository\ProfileRepository;
-use Blueways\BwTodo\Tests\Functional\SiteHandling\SiteBasedTestTrait;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
-use TYPO3\CMS\Core\Http\StreamFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequest;
-use TYPO3\TestingFramework\Core\Functional\Framework\Frontend\InternalRequestContext;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 class ProfileControllerTest extends FunctionalTestCase
@@ -134,10 +129,7 @@ class ProfileControllerTest extends FunctionalTestCase
     {
         $request = new InternalRequest('https://bw-todo.ddev.site/profile.json');
         $request = $request->withMethod('PUT');
-
         $response = $this->executeFrontendSubRequest($request);
-
-        $bo = (string)$response->getBody();
 
         $this->assertEquals(405, $response->getStatusCode());
         $this->assertJson((string)$response->getBody());
@@ -153,7 +145,7 @@ class ProfileControllerTest extends FunctionalTestCase
         // test invalid response
         $invalidRequest = $request->withParsedBody(['name' => str_repeat('X', 300)]);
         $response = $this->executeFrontendSubRequest($invalidRequest);
-        //$this->assertEquals(500, $response->getStatusCode());
+        $this->assertEquals(500, $response->getStatusCode());
 
         // test valid response
         $validRequest = $request->withParsedBody(['name' => 'NewTitle']);
