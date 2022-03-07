@@ -77,14 +77,13 @@ class ProfileController extends ActionController
     protected function create(): ResponseInterface
     {
         $profile = Profile::createFromRequest($this->request);
-        return $this->jsonResponse()->withStatus(500);
 
         try {
             $this->profileRepository->add($profile);
             $this->persistenceManager->persistAll();
         } catch (\Exception $e) {
             $this->logger->error('Could not create profile', $e->getTrace());
-            return $this->jsonResponse()->withStatus(500);
+            return $this->jsonResponse('{}')->withStatus(500);
         }
 
         return $this->show($profile);
