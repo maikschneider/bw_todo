@@ -20,10 +20,6 @@ class ProfileControllerTest extends FunctionalTestCase
 
     protected ?QueryBuilder $queryBuilder = null;
 
-    protected const LANGUAGE_PRESETS = [
-        'EN' => ['id' => 0, 'title' => 'English', 'locale' => 'en_US.UTF8']
-    ];
-
     protected array $testExtensionsToLoad = [
         'typo3conf/ext/bw_todo'
     ];
@@ -31,15 +27,8 @@ class ProfileControllerTest extends FunctionalTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->resetSingletonInstances = true;
 
-        // prepare database @TODO: there must be an auto-truncate or reconstruction of test database..
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_bwtodo_domain_model_profile');
-        $connection->truncate('pages');
-        $connection->truncate('tx_bwtodo_domain_model_profile');
-        $connection->truncate('tx_bwtodo_domain_model_task');
-
-        // set up query builder
         $this->queryBuilder = $connection->createQueryBuilder();
         $this->importDataSet(__DIR__ . '/../../Fixtures/pages.xml');
         $this->setUpFrontendRootPage(1, [
