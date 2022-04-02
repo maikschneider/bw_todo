@@ -131,8 +131,8 @@ class ProfileControllerTest extends FunctionalTestCase
         $request = $request->withMethod('PUT');
         $response = $this->executeFrontendSubRequest($request);
 
-        $this->assertEquals(405, $response->getStatusCode());
         $this->assertJson((string)$response->getBody());
+        $this->assertEquals('[]', (string)$response->getBody());
     }
 
     public function testUpdate(): void
@@ -145,7 +145,11 @@ class ProfileControllerTest extends FunctionalTestCase
         // test invalid response
         $invalidRequest = $request->withParsedBody(['name' => str_repeat('X', 300)]);
         $response = $this->executeFrontendSubRequest($invalidRequest);
-        $this->assertEquals(500, $response->getStatusCode());
+        $profiles = $this->queryBuilder->select('*')
+            ->from('tx_bwtodo_domain_model_profile')
+            ->executeQuery()
+            ->fetchAllAssociative();
+        $this->assertEquals('Garden Todos', $profiles[1]['name'], 'Profile with uid:2 was not touched');
 
         // test valid response
         $validRequest = $request->withParsedBody(['name' => 'NewTitle']);
