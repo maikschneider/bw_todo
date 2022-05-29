@@ -1,12 +1,17 @@
 {
   "name": "blueways/bw-todo",
-  "description": "TYPO3 extension for move:elevator application test",
-  "type": "typo3-cms-extension",
+  "description": "Example TYPO3 extension",
   "authors": [
     {
       "name": "Maik Schneider",
       "email": "schneider.maik@me.com",
       "role": "Developer"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./packages/*"
     }
   ],
   "require": {
@@ -24,7 +29,8 @@
     "typo3/cms-setup": "^11.5",
     "typo3/cms-tstemplate": "^11.5",
     "helhum/typo3-console": "^7.0",
-    "blueways/deployer-recipes": "^2.0"
+    "blueways/deployer-recipes": "^2.0",
+    "blueways/bw-todo-site": "*@dev"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
@@ -32,22 +38,12 @@
     "friendsofphp/php-cs-fixer": "^3.6.0",
     "saschaegerer/phpstan-typo3": "^1.1.2"
   },
-  "autoload": {
-    "psr-4": {
-      "Blueways\\BwTodo\\": "Classes"
-    }
-  },
   "autoload-dev": {
     "psr-4": {
       "Blueways\\BwTodo\\Tests\\": "Tests"
     }
   },
   "extra": {
-    "typo3/cms": {
-      "cms-package-dir": "{$vendor-dir}/typo3/cms",
-      "web-dir": "public",
-      "extension-key": "bw_todo"
-    },
     "helhum/dotenv-connector": {
       "env-file": ".env",
       "adapter": "Helhum\\DotEnvConnector\\Adapter\\SymfonyDotEnv"
@@ -62,7 +58,6 @@
   },
   "scripts": {
     "typo3-cms-scripts": [
-      "ln -sfn ../../../ public/typo3conf/ext/bw_todo",
       "vendor/bin/typo3cms install:fixfolderstructure"
     ],
     "post-autoload-dump": [

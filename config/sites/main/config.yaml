@@ -14,4 +14,4 @@ languages:
 rootPageId: 1
 websiteTitle: ''
 imports:
-  - resource: 'EXT:bw_todo/Configuration/Routing/Api.yaml'
+  - resource: 'EXT:bw_todo_site/Configuration/Routing/Api.yaml'

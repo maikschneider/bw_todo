@@ -1,0 +1,31 @@
+page = PAGE
+page {
+	typeNum = 0
+	shortcutIcon = EXT:bw_todo_site/Resources/Public/Images/Icons/task.svg
+
+	meta {
+		X-UA-Compatible = ie=edge
+		X-UA-Compatible.attribute = http-equiv
+		viewport = width=device-width, initial-scale=1.0
+	}
+
+	10 = TEXT
+	10.value = <todo-app></todo-app>
+
+	includeCSS {
+		app = EXT:bw_todo_site/Resources/Public/Css/dist/App.min.css
+	}
+
+	includeJS {
+		app = EXT:bw_todo_site/Resources/Public/JavaScript/dist/App.min.js
+	}
+
+}
+
+[applicationContext matches "/^Development/"]
+	page {
+		includeCSS.app = EXT:bw_todo_site/Resources/Public/Css/dist/App.css
+		includeJS.app = EXT:bw_todo_site/Resources/Public/JavaScript/dist/App.js
+	}
+[GLOBAL]
+

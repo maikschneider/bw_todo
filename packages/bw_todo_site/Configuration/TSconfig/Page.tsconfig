@@ -1,0 +1,5 @@
+[page["module"] == "td"]
+	mod.web_list {
+		allowedNewTables = tx_bwtodosite_domain_model_profile,tx_bwtodosite_domain_model_task
+	}
+[GLOBAL]
