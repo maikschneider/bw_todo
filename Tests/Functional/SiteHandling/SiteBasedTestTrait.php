@@ -15,7 +15,7 @@ declare(strict_types=1);
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace Blueways\BwTodoSite\Tests\Functional\SiteHandling;
+namespace Blueways\BwTodo\Tests\Functional\SiteHandling;
 
 use TYPO3\CMS\Core\Configuration\SiteConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

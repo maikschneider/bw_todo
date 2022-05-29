@@ -41,7 +41,7 @@
 	<coverage includeUncoveredFiles="true"
 			  processUncoveredFiles="true">
 		<include>
-			<directory suffix=".php">../Classes</directory>
+			<directory suffix=".php">../packages/bw_todo_site/Classes</directory>
 		</include>
 	</coverage>
 	<php>

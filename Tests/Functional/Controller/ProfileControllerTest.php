@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Blueways\BwTodoSite\Tests\Functional\Controller;
+namespace Blueways\BwTodo\Tests\Functional\Controller;
 
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -16,7 +16,7 @@ class ProfileControllerTest extends FunctionalTestCase
     protected ?QueryBuilder $queryBuilder = null;
 
     protected array $testExtensionsToLoad = [
-        'typo3conf/ext/bw_todo'
+        'packages/bw_todo_site'
     ];
 
     protected function setUp(): void

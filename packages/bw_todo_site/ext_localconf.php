@@ -1,7 +1,5 @@
 <?php
 
-defined('TYPO3_MODE') || die('Access denied.');
-
 (static function () {
 
     // add TypoScript setup and constants

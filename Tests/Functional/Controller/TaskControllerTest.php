@@ -1,9 +1,9 @@
 <?php
 
-namespace Blueways\BwTodoSite\Tests\Functional\Controller;
+namespace Blueways\BwTodo\Tests\Functional\Controller;
 
 use Blueways\BwTodoSite\Domain\Repository\ProfileRepository;
-use Blueways\BwTodoSite\Tests\Functional\SiteHandling\SiteBasedTestTrait;
+use Blueways\BwTodo\Tests\Functional\SiteHandling\SiteBasedTestTrait;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Http\StreamFactory;

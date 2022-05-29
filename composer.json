@@ -15,29 +15,30 @@
     }
   ],
   "require": {
-    "typo3/cms-backend": "^11.5",
-    "typo3/cms-belog": "^11.5",
-    "typo3/cms-beuser": "^11.5",
-    "typo3/cms-core": "^11.5",
-    "typo3/cms-extbase": "^11.5",
-    "typo3/cms-extensionmanager": "^11.5",
-    "typo3/cms-frontend": "^11.5",
-    "typo3/cms-impexp": "^11.5",
-    "typo3/cms-install": "^11.5",
-    "typo3/cms-lowlevel": "^11.5",
-    "typo3/cms-recordlist": "^11.5",
-    "typo3/cms-setup": "^11.5",
-    "typo3/cms-tstemplate": "^11.5",
-    "helhum/typo3-console": "^7.0",
-    "blueways/deployer-recipes": "^2.0",
-    "blueways/bw-todo-site": "*@dev"
+    "typo3/cms-backend": "dev-main",
+    "typo3/cms-belog": "dev-main",
+    "typo3/cms-beuser": "dev-main",
+    "typo3/cms-core": "dev-main",
+    "typo3/cms-extbase": "dev-main",
+    "typo3/cms-extensionmanager": "dev-main",
+    "typo3/cms-frontend": "dev-main",
+    "typo3/cms-impexp": "dev-main",
+    "typo3/cms-install": "dev-main",
+    "typo3/cms-lowlevel": "dev-main",
+    "typo3/cms-recordlist": "dev-main",
+    "typo3/cms-setup": "dev-main",
+    "typo3/cms-tstemplate": "dev-main",
+    "blueways/bw-todo-site": "*@dev",
+    "typo3/cms-composer-installers": "^4.0.x-dev",
+    "helhum/dotenv-connector": "^3.0",
+    "helhum/typo3-console": "7.1.x-dev"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
-    "typo3/testing-framework": "@dev",
-    "friendsofphp/php-cs-fixer": "^3.6.0",
-    "saschaegerer/phpstan-typo3": "^1.1.2"
+    "typo3/testing-framework": "dev-main",
+    "friendsofphp/php-cs-fixer": "^3.6.0"
   },
+  "minimum-stability": "dev",
   "autoload-dev": {
     "psr-4": {
       "Blueways\\BwTodo\\Tests\\": "Tests"
@@ -64,7 +65,7 @@
       "@typo3-cms-scripts"
     ],
     "tests": [
-      "vendor/bin/phpunit -c Build/FunctionalTests.xml Tests/Functional"
+      "vendor/bin/phpunit -c Build/FunctionalTests.xml"
     ],
     "lint": [
       "vendor/bin/php-cs-fixer fix Classes",
