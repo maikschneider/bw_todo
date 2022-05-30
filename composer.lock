@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ce493e7391cd098958665cee4f30c73",
+    "content-hash": "f4c5a499d8925c62d9a65e5c84d85725",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5400,12 +5400,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/core.git",
-                "reference": "017396ed5c88609be1485e958f58f40811354efd"
+                "reference": "09f996b5fd8d6c43326be384da81f414b67a65f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/core/zipball/017396ed5c88609be1485e958f58f40811354efd",
-                "reference": "017396ed5c88609be1485e958f58f40811354efd",
+                "url": "https://api.github.com/repos/TYPO3-CMS/core/zipball/09f996b5fd8d6c43326be384da81f414b67a65f1",
+                "reference": "09f996b5fd8d6c43326be384da81f414b67a65f1",
                 "shasum": ""
             },
             "require": {
@@ -5529,7 +5529,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2022-05-29T11:33:33+00:00"
+            "time": "2022-05-30T10:33:28+00:00"
         },
         {
             "name": "typo3/cms-extbase",
@@ -5798,65 +5798,6 @@
                 "source": "https://github.com/typo3/typo3"
             },
             "time": "2022-05-28T20:26:22+00:00"
-        },
-        {
-            "name": "typo3/cms-impexp",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TYPO3-CMS/impexp.git",
-                "reference": "3afb78a45aba3a0f06df72b53843bffd0c89fd9b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/impexp/zipball/3afb78a45aba3a0f06df72b53843bffd0c89fd9b",
-                "reference": "3afb78a45aba3a0f06df72b53843bffd0c89fd9b",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "12.0.*@dev"
-            },
-            "conflict": {
-                "typo3/cms": "*"
-            },
-            "default-branch": true,
-            "type": "typo3-cms-framework",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "12.0.x-dev"
-                },
-                "typo3/cms": {
-                    "Package": {
-                        "partOfFactoryDefault": true
-                    },
-                    "extension-key": "impexp"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TYPO3\\CMS\\Impexp\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "TYPO3 Core Team",
-                    "email": "typo3cms@typo3.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "TYPO3 CMS Import/Export - Tool for importing and exporting records using XML or the custom T3D format.",
-            "homepage": "https://typo3.org",
-            "support": {
-                "chat": "https://typo3.org/help",
-                "docs": "https://docs.typo3.org/c/typo3/cms-impexp/main/en-us/",
-                "issues": "https://forge.typo3.org",
-                "source": "https://github.com/typo3/typo3"
-            },
-            "time": "2022-05-25T11:22:30+00:00"
         },
         {
             "name": "typo3/cms-install",
@@ -9173,7 +9114,6 @@
         "typo3/cms-extbase": 20,
         "typo3/cms-extensionmanager": 20,
         "typo3/cms-frontend": 20,
-        "typo3/cms-impexp": 20,
         "typo3/cms-install": 20,
         "typo3/cms-lowlevel": 20,
         "typo3/cms-recordlist": 20,
