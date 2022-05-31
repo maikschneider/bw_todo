@@ -16,7 +16,7 @@ host('staging')
     ->set('http_user', 'www-data')
     ->set('writable_mode', 'chmod')
     ->set('bin/composer', '/usr/local/bin/composer')
-    ->set('bin/php', '/usr/bin/php7.4')
+    ->set('bin/php', '/usr/bin/php')
     ->set('deploy_path', '/home/web0/vhosts/deployer.maik-tailor.de/htdocs/branches/master');
 
 host('local')
